@@ -24,3 +24,15 @@ canvas {
   left: 50%;
   transform: translateX(-50%);
 }
+
+#GameScreen {
+  background-image: url("Images/Elevator_wb_Tes.png");
+  background-size: cover;
+}
+
+#ElevatorButtons {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 255, 0.5);
+  clip-path: polygon(71% 29%, 86.5% 29%, 86.5% 64%, 71% 64%);
+}
