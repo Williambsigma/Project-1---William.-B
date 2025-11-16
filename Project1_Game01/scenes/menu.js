@@ -6,11 +6,13 @@ export function makeMenu(p){
             this.startScreenImgRef = p.loadImage("/Project1_Game01/Images/MainMenu_Test.png");
             this.startTextImgRef = p.loadImage("/Project1_Game01/Images/PlayButton_Test.png");
         },
-        button(currentScene, setScene) {
+        button(getScene, setScene) {
             const div = document.createElement("div");
             div.id = "PlayButton";
             div.addEventListener("click", () => {
-                if (currentScene !== "menu") return;
+                console.log("Play Button Pressed!");
+                if (getScene() !== "menu") {return};
+                console.log("Scene = Elevator");
                 setScene("elevator");
             });
             document.body.appendChild(div);

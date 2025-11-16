@@ -1,3 +1,4 @@
+import { makeButtons } from "./scenes/buttons.js";
 import { makeElevator } from "./scenes/elevator.js";
 import { makeMenu } from "./scenes/menu.js";
 
@@ -21,11 +22,13 @@ new p5((p) => {
         currentItem = item;
     }
     const menu = makeMenu(p);
-    const elevator = makeElevator(p, currentItem);
+    const elevator = makeElevator(p);
+    const buttons = makeButtons(p);
     
     p.preload = () => {
         menu.load();
         elevator.load();
+        buttons.load();
     };
     p.frameRate(24);
     p.setup = () => {
@@ -33,7 +36,8 @@ new p5((p) => {
         p.pixelDensity(3);
         canvasEl.canvas.style = "";
         p.noSmooth();
-        menu.button(currentScene, setScene);
+        menu.button(() => currentScene, setScene);
+        elevator.button(() => currentScene, setScene);
     };
 
     p.draw = () => {
@@ -45,7 +49,7 @@ new p5((p) => {
                 elevator.draw(currentItem);
                 break;
             case "buttons" :
-                //Todo
+                buttons.draw();
                 break;
             default:
         }

@@ -13,13 +13,14 @@ export function makeElevator(p) {
                 let frame = i.toString().padStart(4, "0");
                 this.doorAnimFrames.push(p.loadImage(`/Project1_Game01/Images/Door_Anim/Elevator_Door_Anim${frame}.png`));
             }
-            this.elevator = p.loadImage("/Project1_Game01/Images/Elevator_Still.png");
         },
-        button(currentScene, setScene) {
+        button(getScene, setScene) {
             const div = document.createElement("div");
             div.id = "ElevatorButtons";
             div.addEventListener("click", () => {
-                if (currentScene !== "elevator") return;
+                console.log("Buttons Button pressed!");
+                if (getScene() !== "elevator") {return};
+                console.log("Buttons");
                 setScene("buttons");
             });
             document.body.appendChild(div);
@@ -27,7 +28,6 @@ export function makeElevator(p) {
         draw(item) {
             p.clear();
             p.image(this.doorAnimFrames[Math.floor(this.doorAnimIndex)], -0.04*p.mouseX, -0.04*p.mouseY, 1920*1.04, 1080*1.04);
-            // X: 0=0, 960=-96, 1920=-192
             if (this.doorAnimIndex<this.doorAnimFrames.length - 1){
                 this.doorAnimIndex+=0.35;
             }
