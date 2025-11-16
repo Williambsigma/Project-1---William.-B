@@ -7,13 +7,13 @@
     <title>Sketch</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
-    <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
   </head>
 
-  <body id="MainMenu">
-    <script src="sketch.js"></script>
-    <div id="PlayButton" onclick="navigateTo('game.html')"></div>
+  <body>
+    <canvas id="game"></canvas>
+    <script src="libraries/p5.min.js"></script>
+    <script type="module" src="main.js"></script>
+    <!-- <div id="PlayButton" onclick="setScene('elevator')"></div> -->
   </body>
 </html>
