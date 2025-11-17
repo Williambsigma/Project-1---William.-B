@@ -17,11 +17,17 @@ export function makeElevator(p) {
         button(getScene, setScene) {
             const div = document.createElement("div");
             div.id = "ElevatorButtons";
-            div.addEventListener("click", () => {
-                console.log("Buttons Button pressed!");
-                if (getScene() !== "elevator") {return};
-                console.log("Buttons");
-                setScene("buttons");
+            console.log("CursorX: "+this.player.cursorX);
+            document.addEventListener("click", () => {
+                console.log("CursorX: "+this.player.cursorX);
+                console.log("Elements from point: "+this.player.click());
+                if (this.player.click().includes("object HTMLDivElement")) {
+                    console.log("CursorX: "+this.player.cursorX);
+                    // console.log("Buttons Button pressed!");
+                    // if (getScene() !== "elevator") {return};
+                    // console.log("Buttons");
+                    // setScene("buttons");
+                }
             });
             document.body.appendChild(div);
         },

@@ -35,7 +35,7 @@ canvas {
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 255, 0);
-  clip-path: polygon(71% 29%, 86.5% 29%, 86.5% 64%, 71% 64%);
+  background-color: rgba(0, 0, 255, 0.5);
+  clip-path: polygon(70% 39%, 84.5% 39%, 84.5% 74%, 70% 74%);
   z-index: 0;
 }

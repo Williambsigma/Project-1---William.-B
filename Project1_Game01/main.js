@@ -12,7 +12,7 @@ new p5((p) => {
         currentScene = name;
 
         if (currentScene != "menu"){
-            document.body.classList.add("hide-cursor");
+            // document.body.classList.add("hide-cursor");
         } else {
             document.body.classList.remove("hide-cursor");
         }
@@ -49,7 +49,7 @@ new p5((p) => {
                 elevator.draw(currentItem);
                 break;
             case "buttons" :
-                buttons.draw();
+                buttons.draw(currentItem);
                 break;
             default:
         }

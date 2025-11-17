@@ -5,18 +5,23 @@ export function makeCharacter(p) {
         cameraHand: null,
         cursorX: 0,
         cursorY: 0,
+        cursorLoc: null,
+        newCursor: null,
         load() {
             this.pointerHand = p.loadImage("/Project1_Game01/Images/Hands/Pointer_Hands.png");
             this.gunHand = p.loadImage("/Project1_Game01/Images/Hands/Gun_Hands.png");
             this.cameraHand = p.loadImage("/Project1_Game01/Images/Hands/Camera_Hands.png");
         },
+        click() {
+            return document.elementsFromPoint(this.cursorX, this.cursorY);
+        },
         draw(item) {
             let targetX, targetY;
             if (item === "pointer"){
-                targetX = p.constrain(p.mouseX, 1050, 1500);
+                targetX = p.constrain(p.mouseX, 1050, 1650);
                 targetY = p.constrain(p.mouseY, 460, 960);
                 p.image(this.pointerHand, this.cursorX-1050, this.cursorY - 460);
-                p.circle(this.cursorX, this.cursorY, 50);
+                this.newCursor = p.circle(this.cursorX, this.cursorY, 50);
             } else if (item === "gun"){
                 targetX = p.constrain(p.mouseX, 800, 1080);
                 targetY = p.constrain(p.mouseY, 360, 960);

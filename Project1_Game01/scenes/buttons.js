@@ -1,8 +1,12 @@
+import { makeCharacter } from "../entities/character.js";
+
 export function makeButtons(p) {
     return {
+        player: makeCharacter(p, 0, 0),
         toButtons_openAnimFrames: null,
         toButtons_openAnimIndex: 0,
         load() {
+            this.player.load();
             this.toButtons_openAnimFrames = [];
             for (let i=1; i<=24; i++) {
                 let frame = i.toString().padStart(4, "0");
@@ -12,12 +16,13 @@ export function makeButtons(p) {
         setup(){
 
         },
-        draw() {
+        draw(item) {
             p.clear();
             p.image(this.toButtons_openAnimFrames[Math.floor(this.toButtons_openAnimIndex)], -0.04*p.mouseX, -0.04*p.mouseY, 1920*1.04, 1080*1.04);
             if (this.toButtons_openAnimIndex<this.toButtons_openAnimFrames.length - 1){
-                this.toButtons_openAnimIndex+=0.35;
+                this.toButtons_openAnimIndex+=0.75;
             }
+            this.player.draw(item);
         }
     }
 }
