@@ -13,7 +13,7 @@ export function makeCharacter(p) {
             this.cameraHand = p.loadImage("/Project1_Game01/Images/Hands/Camera_Hands.png");
         },
         click() {
-            return document.elementsFromPoint(this.cursorX, this.cursorY);
+            return document.elementsFromPoint(p.lerp(this.cursorX, targetX, 0.15), p.lerp(this.cursorY, targetY, 0.15));
         },
         draw(item) {
             let targetX, targetY;
